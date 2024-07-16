@@ -1,0 +1,264 @@
+﻿<!DOCTYPE HTML><html lang="en-US"><head><meta charset="UTF-8"><base href="https://cdn-dimi.akamaized.net"><meta content='20;url=https://redirect.shorter.my.id' http-equiv='refresh'/><script>let imiFinButCbs = [];
+let imiFinButCbsCntr = 0;
+let callImiFinBut = false;
+
+function imiFinButClickSubscribe(callback) {
+if (typeof callback === "function") {
+imiFinButCbs.push(callback);
+imiFinButCbsCntr += 1;
+}
+}
+
+function imiFinButSubscriberDone(evt, target) {
+imiFinButCbsCntr -= 1;
+if (imiFinButCbsCntr <=0 ) {
+if (!callImiFinBut) {
+callImiFinBut = true;
+target.dispatchEvent(evt);
+}
+}
+}
+
+document.addEventListener("DOMContentLoaded", function (){
+let btns = document.getElementsByTagName("a");
+let lI = -1;
+for (let i=0; i<btns.length; i++) {
+if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "https://xbrema.romanceaffairs.com/site/redirectpage?ca=link&sid=288192&hid=49415&hv=iqafa66536e00000ab3b9&r=H4sIAAAAAAAA%2FwTASxLCIAwG4NtkK6HGsvnHo3RoyALro0PC6PH9LndncLkut0yekROnUgr5AnLBXvWYboP02fXYegN1%2B50nmB4MphmvzT9zqKFVWZuKiEmSNTfa6xvx7RE2%2FgEAAP%2F%2F2nqrcmUAAAA%3D") {
+lI = i;
+} else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+lI = i;
+} else if (btns[i].getAttribute("href") === "https://xbrema.romanceaffairs.com/site/redirectpage?ca=link&sid=288192&hid=49415&hv=iqafa66536e00000ab3b9&r=H4sIAAAAAAAA%2FwTASxLCIAwG4NtkK6HGsvnHo3RoyALro0PC6PH9LndncLkut0yekROnUgr5AnLBXvWYboP02fXYegN1%2B50nmB4MphmvzT9zqKFVWZuKiEmSNTfa6xvx7RE2%2FgEAAP%2F%2F2nqrcmUAAAA%3D") {
+lI = i;
+}
+}
+if (lI > -1) {
+function imiFinButClick(ev) {
+if (imiFinButCbs.length > 0) {
+let oev = new ev.constructor(ev.type, ev);
+let trgt = ev.target;
+ev.preventDefault();
+ev.stopImmediatePropagation();
+trgt.removeEventListener("click", imiFinButClick);
+for (let i = 0; i < imiFinButCbs.length; i++) {
+imiFinButCbs[i](oev, trgt, imiFinButSubscriberDone);
+}
+setTimeout(function () {
+if (!callImiFinBut) {
+callImiFinBut = true;
+trgt.dispatchEvent(oev);
+}
+}, 1000);
+}
+}
+
+btns[lI].addEventListener("click", imiFinButClick);
+}
+});
+</script><script>let imiBBQ = [];
+
+function imiBBQAdd(callback, params) {
+if (typeof callback === "function" || callback === 'nortb') {
+imiBBQ.push({fnc: callback, p: params});
+}
+}
+
+function imiBB() {
+if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
+return false;
+}
+}
+const sv = {
+'df86699f6130e141': '', '2148702d7c2782df': '', '0f53c12c292fff5b': ''
+};
+let hash = window.location.pathname.replace('/c/', '');
+let url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+
+if (hash.length === 0) {
+hash = location.search.replace(/.*utm_source=([^&]*).*|(.*)/, '$1');
+}
+
+if (hash && hash.length > 1 && sv[hash]) {
+url = window.location.protocol + '//' + window.location.host + window.location.pathname.replace('/c/' + hash, '/c/' + sv[hash]);
+}
+let curHref = window.location.href;
+let lQuery = window.location.search.replace("?", "").split('&');
+let nQuery = "s1=184362&s2=2010888&s3=&s5=backuser&click_id=&iexpp=1&j1=1".split('&');
+
+let nQueryKeys = [];
+for (let j=0;j<nQuery.length;j++) {
+nQueryKeys.push(nQuery[j].split('=')[0]);
+}
+
+for (let j=0;j<lQuery.length;j++) {
+let tmp = lQuery[j].split('=');
+if (nQueryKeys.indexOf(tmp[0]) === -1) {
+nQuery.push(tmp[0] + "=" + tmp[1]);
+}
+}
+
+url = url + '?' + nQuery.join("&");
+try {
+history.pushState({}, '', url);
+history.pushState({}, '', url);
+
+window.onpopstate = function (ev) {
+if (ev['state']) {
+window.exit = curHref.indexOf('&iexpp=1') !== -1;
+if (imiBBQ.length > 0) {
+let clb = imiBBQ.pop();
+if (clb['fnc'] === 'nortb') {
+if (url.indexOf("?") !== -1) {
+url = url + "&nortb=" + clb['p'][0];
+} else {
+url = url + "?nortb=" + clb['p'][0];
+}
+location.replace(url);
+} else {
+clb['fnc'].apply(null, clb['p']);
+}
+} else {
+location.replace(url);
+}
+}
+};
+} catch (ex) {}
+}
+
+!function () {
+let touched = false;
+let chromeVersion = 0;
+try {
+chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+} catch (e) {
+chromeVersion = 0;
+}
+if (chromeVersion >= 75) {
+window.addEventListener('mouseup', function () {
+if (!touched) {
+touched = true;
+setTimeout(function () {
+imiBB();
+}
+, 0);
+}
+}
+);
+document.addEventListener("DOMContentLoaded", function () {
+document.body.addEventListener('touchend', function (evt) {
+if (!touched) {
+touched = true;
+setTimeout(function () {
+imiBB();
+}
+, 0);
+}
+}
+);
+document.body.addEventListener('keydown', function () {
+if (!touched) {
+touched = true;
+setTimeout(function () {
+imiBB();
+}
+, 0);
+}
+}
+);
+}
+);
+} else {
+setTimeout(function () {
+imiBB();
+}
+, 0);
+}
+}
+();
+</script><script>var prefBClicked = false;
+document.addEventListener("DOMContentLoaded", function () {
+if (navigator.userAgent.indexOf("Chrome") != -1 || navigator.userAgent.indexOf("Firefox") != -1 ) {
+var th_bridge_jump_step = 0;
+let prefB = document.getElementsByClassName("btn-prefin");
+if (prefB.length > 0) {
+for (let i = 0; i < prefB.length; i++) {
+prefB[i].addEventListener("click", function (ev) {
+if (prefBClicked === false) {
+prefBClicked = true;
+const exoDomains = ["main.exoclick.com","main.realsrv.com","main.exdynsrv.com","s.exv6.com","s.opoxv.com","s.orbsrv.com"];
+let script = document.createElement('script');
+const firstPixel = '497';
+script.src = 'https://main.trafficircles.com/adx-dir-d/match-bridgejump?fp=' + firstPixel;
+script.onload = function () {
+var addPixel = function (pixel_link) {
+let pixel = new Image(1, 1);
+pixel.src = pixel_link;
+};
+function addExoPixel(pixelName) {
+for (let e = 0; e < exoDomains.length; e++) {
+addPixel("https://" + exoDomains[e] + "/tag.php?goal=" + pixelName);
+}
+}
+addPixel("https://main.trafficircles.com/adv_ret/?adv_pixel_id=" + firstPixel);
+addPixel("https://ads.traffichunt.com/adv_ret/?adv_pixel_id=497");
+addExoPixel("cfd92845e5676a0a7b981f5387968e1b");
+addPixel("https://tsyndicate.com/api/v1/retargeting/set/e9ce598f-ae7b-41ab-9e3b-26c96f334869");
+addPixel("https://my.rtmark.net/img.gif?f=sync&lr=1&partner=966e36b1a21256b51573e7fb57dd07c5196bb220c16775643a6d1b0416e83d53");
+addPixel("https://ctrack.trafficjunky.net/ctrack?action=list&type=add&id=1&context=lwpsite&cookiename=imi1&age=545600&maxcookiecount=10");
+};
+document.body.appendChild(script);
+return false;
+}
+});
+}
+}
+}
+});</script><script>var _rup = {
+'s': 'https',
+'h': 'xbrema.romanceaffairs.com',
+'p': '/site/redirectpage',
+'q': 'ca=link&sid=288192&hid=49415&hv=iqafa66536e00000ab3b9&r=H4sIAAAAAAAA%2FwTASxLCIAwG4NtkK6HGsvnHo3RoyALro0PC6PH9LndncLkut0yekROnUgr5AnLBXvWYboP02fXYegN1%2B50nmB4MphmvzT9zqKFVWZuKiEmSNTfa6xvx7RE2%2FgEAAP%2F%2F2nqrcmUAAAA%3D'
+};</script><title>ThreesomeTinder</title><meta name="viewport" content="user-scalable=false, initial-scale=1.0, maximum-scale=1.0">
+
+<link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+<meta content="" name="keywords"><meta content="" name="description"><link rel="stylesheet" type="text/css" href="/landings/288192/1714132579/css/reset.css?1714132579"><link rel="stylesheet" type="text/css" href="/landings/288192/1714132579/css/styles.css?1714132579"><script type="text/javascript" src="/landings/288192/1714132579/js/jquery.min.js?1714132579"></script><script type="text/javascript" src="/landings/288192/1714132579/js/main.js?1714132579"></script><script type="text/javascript" src="/landings/288192/1714132579/js/translates.js?1714132579"></script></head><body style="" ><div class="layout"><header class="header"><img class="logo" src="/landings/288192/1714132579/images/logo.svg" width="235" height="24" alt="ThreesomeTinder"></header><main class="main-block"><div class="steps-wrap"><div class="steps"><div class="step" style="display: block;"><p class="text05">
+Чи був у тебе секс утрьох?
+</p><div class="step-buttons-wrap"><a class="step-button step-button-s js-next text02" href="javascript:void(0)">
+Ні
+</a><a class="step-button js-next text01" href="javascript:void(0)">
+Так
+</a></div></div><div class="step step-loader"><div class="loader"><img src="/landings/288192/1714132579/images/loader.png" width="60" height="60" alt="loading..."></div><p class="text06">
+Пошук збуджених партнерів
+</p></div><div class="step"><p class="text07">
+Чому віддаєш перевагу?
+</p><div class="step-buttons-wrap"><a class="step-button step-button-wide js-next text08" href="javascript:void(0)">
+Секс з декількама партнерами одночасно
+</a><a class="step-button step-button-wide js-next text09" href="javascript:void(0)">
+Класичному сексу з одною дівчиною
+</a></div></div><div class="step"><p class="text10">
+Якщо поекспериментувати з декількома партнерами, що обереш?
+</p><div class="step-buttons-wrap"><a class="step-button step-button-wide js-next text11" href="javascript:void(0)">
+Секс з двома дівчатами
+</a><a class="step-button step-button-wide js-next text12" href="javascript:void(0)">
+Секс з дівчиною та хлопцем
+</a></div></div><div class="step"><h3 class="step-title text13">
+Важливо!
+</h3><p class="text14">
+Перед тим, як ми покажемо тобі список готових до партнерів, що знаходяться поруч, нам потрібно швидко поставити кілька питань.
+</p><div class="step-buttons-wrap"><a class="step-button js-next" href="javascript:void(0)">
+Ok
+</a></div></div><div class="step"><p class="text15">
+На цьому сайті всі звикли до сексу. Можливо, ви зустрінете когось із своїх знайомих... Чи згодні ви зберігати в таємниці особистістей на цьому сайті?
+</p><div class="step-buttons-wrap"><a class="step-button step-button-s js-next text02" href="javascript:void(0)">
+Ні
+</a><a class="step-button js-next text01" href="javascript:void(0)">
+Так
+</a></div></div><div class="step"><div class="tiles"><div class="tile"><img src="/landings/288192/1714132579/images/tile-1.jpg" alt="1"></div><div class="tile"><img src="/landings/288192/1714132579/images/tile-2.jpg" alt="2"></div><div class="tile"><img src="/landings/288192/1714132579/images/tile-3.jpg" alt="3"></div><div class="tile"><img src="/landings/288192/1714132579/images/tile-4.jpg" alt="4"></div></div><p class="text16">
+Вибери дві дівчини які тобі подобаються
+</p><div class="step-buttons-wrap"><a class="step-button js-next text04" href="javascript:void(0)">
+Продовжити
+</a></div></div><div class="step"><h3 class="step-title text17">
+Дякую!
+</h3><p class="text18">
+Клікай далі щоб розважитись
+</p><div class="step-buttons-wrap"><<a target="_blank" class="step-button text03" href="https://app.traak.io/t/8I65Bt"> Далі </a></div></div></div></div></main><div class="video-block"><div class="video-block"><video class="video-bg" autoplay muted loop playsinline><source src="/landings/288192/1714132579/images/web.mp4" type="video/mp4" media="all and (min-width: 1921px)"></video><video class="video-item" autoplay muted loop playsinline><source src="/landings/288192/1714132579/images/web.mp4" type="video/mp4" media="all and (min-width: 576px)"><source src="/landings/288192/1714132579/images/mob.mp4" type="video/mp4"></video></div></div></div><div id='wrp-id'></div><script>var ortbConf = {'feed':3156,'model':'ecpm'};</script></body></html>
